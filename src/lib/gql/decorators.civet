@@ -1,0 +1,13 @@
+* as Symbol from ./symbols.civet
+
+export Resolver := () -> (target: any, _: any) ->
+  target[Symbol.RESOLVER] = true
+  void 0
+
+export Query := () -> (_: any, ...args: any[]) ->
+  args.1.value[Symbol.QUERY] = true
+  void 0
+
+export Mutation := () -> (_: any, ...args: any[]) ->
+  args.1.value[Symbol.MUTATION] = true
+  void 0

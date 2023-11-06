@@ -1,0 +1,4 @@
+pino from pino
+pretty from pino-pretty
+
+export logger := pino pretty()

@@ -1,0 +1,19 @@
+{
+  "name": "bun-civet-yoga",
+  "type": "module",
+  "scripts": {
+    "dev:books": "bun run --bun src/apps/books/book.handler.civet"
+  },
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "latest"
+  },
+  "dependencies": {
+    "@danielx/civet": "latest",
+    "@graphql-tools/utils": "latest",
+    "pino": "latest",
+    "pino-pretty": "latest"
+  }
+}

@@ -1,0 +1,3 @@
+{ booksApp } from ./gql/book.app.civet
+
+booksApp.listen()

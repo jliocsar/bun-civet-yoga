@@ -1,0 +1,3 @@
+export QUERY := Symbol 'QUERY'
+export MUTATION := Symbol 'MUTATION'
+export RESOLVER := Symbol 'RESOLVER'

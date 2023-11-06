@@ -1,0 +1,24 @@
+{ type GraphQLSchemaWithContext, createSchema, createYoga } from graphql-yoga
+type { Dict, Constructor } from ../utils/types.civet
+{ logger } from ../logger.civet
+{ buildResolvers } from ./schema.civet
+
+export class GraphQLApp<TDefs extends string = string, TContext extends Dict<any> = Dict<any>, TResolvers extends Constructor[] = Constructor[]>
+  private readonly schema: GraphQLSchemaWithContext<TContext>
+
+  @(typeDefs: TDefs, resolvers: TResolvers)
+    @schema := createSchema {
+      typeDefs
+      resolvers: buildResolvers<TContext, TResolvers> resolvers
+    }
+
+  // can be used as a handler from AWS lambda etc
+  listen()
+    yoga := createYoga<TContext> { @schema }
+    // @ts-expect-error - Bun types mistmatch
+    server := Bun.serve yoga
+    logger.info
+      `Server is running on ${new URL(
+        yoga.graphqlEndpoint,
+        `http://${server.hostname}:${server.port}`
+      )}`

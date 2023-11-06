@@ -1,0 +1,18 @@
+{ GraphQLApp } from ../../../lib/gql/app.civet
+{ BookResolver } from ./book.resolvers.civet
+
+export booksApp := new GraphQLApp
+  `
+  type Query {
+    books: [Book]
+  }
+
+  type Book {
+    title: String
+  }
+
+  schema {
+    query: Query
+  }  
+  `
+  [BookResolver]
