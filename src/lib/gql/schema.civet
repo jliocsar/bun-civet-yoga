@@ -1,9 +1,10 @@
+type { YogaInitialContext } from graphql-yoga
 type { IResolvers } from @graphql-tools/utils
-type { Dict, Constructor } from ../utils/types.civet
+type { Constructor } from ../utils/types.civet
 * as Symbol from ./symbols.civet
 
 export buildResolvers := <
-  TContext extends Dict<any> = Dict<any>,
+  TContext extends YogaInitialContext = YogaInitialContext
   TResolvers extends Constructor[] = Constructor[]
 >(resolvers: TResolvers) ->
   resolvers.reduce((acc, Resolver) =>

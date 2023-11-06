@@ -1,9 +1,12 @@
-{ type GraphQLSchemaWithContext, createSchema, createYoga } from graphql-yoga
-type { Dict, Constructor } from ../utils/types.civet
+{ type GraphQLSchemaWithContext, type YogaInitialContext, createSchema, createYoga } from graphql-yoga
+type { Constructor } from ../utils/types.civet
 { logger } from ../logger.civet
 { buildResolvers } from ./schema.civet
 
-export class GraphQLApp<TDefs extends string = string, TContext extends Dict<any> = Dict<any>, TResolvers extends Constructor[] = Constructor[]>
+export class GraphQLApp<
+  TDefs extends string = string
+  TContext extends YogaInitialContext = YogaInitialContext, TResolvers extends Constructor[] = Constructor[]
+>
   private readonly schema: GraphQLSchemaWithContext<TContext>
 
   @(typeDefs: TDefs, resolvers: TResolvers)
