@@ -1,0 +1,13 @@
+export typeDefs := `
+  type Query {
+    books: [Book]
+  }
+
+  type Book {
+    title: String
+  }
+
+  schema {
+    query: Query
+  }  
+`
