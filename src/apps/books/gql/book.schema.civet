@@ -1,4 +1,4 @@
-export typeDefs := `
+export default `
   type Query {
     books: [Book]
   }
@@ -9,5 +9,5 @@ export typeDefs := `
 
   schema {
     query: Query
-  }  
+  }
 `
