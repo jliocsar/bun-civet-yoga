@@ -13,6 +13,7 @@
   "dependencies": {
     "@danielx/civet": "latest",
     "@graphql-tools/utils": "latest",
+    "@pothos/core": "latest",
     "graphql-yoga": "latest",
     "pino": "latest",
     "pino-pretty": "latest"

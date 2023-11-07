@@ -1,1 +1,2 @@
 export type Constructor<T = any, Args extends any[] = any[]> = new (...args: Args) => T
+export type Nullable<T> = T | null

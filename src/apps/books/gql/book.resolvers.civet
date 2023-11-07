@@ -1,7 +1,0 @@
-{ Resolver, Query } from ../../../lib/gql/decorators.civet
-
-@@Resolver()
-export class BookResolver
-  @@Query()
-  books()
-    [{ title: 'Test' }]

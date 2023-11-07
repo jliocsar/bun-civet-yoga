@@ -1,0 +1,22 @@
+{ Resolver } from ../../../lib/gql/index.civet
+{ type THelloArgs, HelloArgs, Book } from ./types/hello.type.civet
+{ builder } from ./book.builder.civet
+
+class BookResolver < Resolver builder
+  @hello(_: Book, args: THelloArgs)
+    'Hello ' + args.name
+
+  @createHello(_: Book, args: THelloArgs)
+    'Hello ' + args.name
+
+export bookResolver := new BookResolver
+  |> .withQuery
+    fields: (t) =>
+      hello: t.string
+        args: HelloArgs
+        resolve: BookResolver.hello
+  |> .withMutation
+    fields: (t) =>
+      createHello: t.string
+        args: HelloArgs
+        resolve: BookResolver.hello

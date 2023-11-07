@@ -1,0 +1,13 @@
+type { InputShapeFromFields } from @pothos/core
+{ builder } from ../book.builder.civet
+
+export class Book
+
+// builder.objectType Book, 
+//   name: 'Book'
+//   description: 'A book'
+
+export HelloArgs := builder.args (t) ->
+  name: t.string()
+
+export type THelloArgs = InputShapeFromFields<typeof HelloArgs>

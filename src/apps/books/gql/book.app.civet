@@ -1,5 +1,4 @@
 { GraphQLApp } from ../../../lib/gql/app.civet
-{ BookResolver } from ./book.resolvers.civet
-schema from ./book.schema.civet
+{ schema } from ./book.schema.civet
 
-export booksApp := new GraphQLApp schema, [BookResolver]
+export booksApp := new GraphQLApp schema

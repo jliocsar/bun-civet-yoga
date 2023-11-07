@@ -1,0 +1,3 @@
+SchemaBuilder from @pothos/core
+
+export builder := new SchemaBuilder {}

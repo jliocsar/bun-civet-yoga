@@ -1,20 +1,11 @@
-{ type GraphQLSchemaWithContext, type YogaInitialContext, createSchema, createYoga } from graphql-yoga
-type { TypeSource } from @graphql-tools/utils
-type { Constructor } from ../utils/types.civet
+type { GraphQLSchema } from graphql
+{ type YogaInitialContext, createYoga } from graphql-yoga
 { logger } from ../logger.civet
-{ buildResolvers } from ./schema.civet
 
 export class GraphQLApp<
-  TDefs extends TypeSource = TypeSource
-  TContext extends YogaInitialContext = YogaInitialContext, TResolvers extends Constructor[] = Constructor[]
+  TContext extends YogaInitialContext = YogaInitialContext
 >
-  private readonly schema: GraphQLSchemaWithContext<TContext>
-
-  @(typeDefs: TDefs, resolvers: TResolvers)
-    @schema := createSchema {
-      typeDefs
-      resolvers: buildResolvers<TContext, TResolvers> resolvers
-    }
+  @(private readonly schema: GraphQLSchema)
 
   // can be used as a handler from AWS lambda etc
   listen()

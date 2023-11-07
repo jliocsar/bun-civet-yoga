@@ -1,13 +1,5 @@
-export default `
-  type Query {
-    books: [Book]
-  }
+{ bookResolver } from ./book.resolver.civet
 
-  type Book {
-    title: String
-  }
-
-  schema {
-    query: Query
-  }
-`
+export schema := bookResolver
+  |> .builder
+  |> .toSchema()

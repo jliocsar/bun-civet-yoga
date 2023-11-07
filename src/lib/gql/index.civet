@@ -1,0 +1,16 @@
+export Resolver := <
+  T extends {} = {}
+  TBuilder extends PothosSchemaTypes.SchemaBuilder<
+    PothosSchemaTypes.ExtendDefaultTypes<T>
+  > = PothosSchemaTypes.SchemaBuilder<PothosSchemaTypes.ExtendDefaultTypes<T>>
+>(builder: TBuilder) ->
+  class
+    readonly builder: TBuilder = builder
+
+    withQuery(options: PothosSchemaTypes.QueryTypeOptions<PothosSchemaTypes.ExtendDefaultTypes<T>>)
+      @builder.queryType options
+      @
+
+    withMutation(options: PothosSchemaTypes.MutationTypeOptions<PothosSchemaTypes.ExtendDefaultTypes<T>>)
+      @builder.mutationType options
+      @
